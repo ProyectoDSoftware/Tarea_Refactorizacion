@@ -26,30 +26,41 @@ public class Pagos {
         switch (employee.getEmployeeType()) {
             case Worker:
                 //Si el mes es impar entonces le entrega el decimo junto con su salario
-                return month % 2 == 0 ? employee.getSalary() : employee.getSalary() + rmu / 12 * 2;
+                return Decimo(month, 0);
             case Supervisor:
                 float valueS = employee.getSalary() + (employee.getBonusPercentage() * 0.5F);
                 //Si el mes es impar entonces le entrega el decimo junto con su salario y un bono
-                return month % 2 == 0 ? valueS : valueS + rmu / 12 * 2;
+                return Decimo(month, valueS);
             case Manager:
                 float valueM = employee.getSalary()+ (employee.getBonusPercentage() * 0.7F);
                 //Si el mes es impar entonces le entrega el decimo junto con su salario y un bono
-                return month % 2 == 0 ? valueM : valueM + rmu / 12 * 2;
+                return Decimo(month, valueM);
         }
         return 0.0F;
     }
 
+    public float Decimo(int month,float value){
+        return month % 2 == 0 ? value : value + rmu / 12 * 2;
+    }
+    
+    public float (){
+        
+    }
     //calcula el bonus anual
     public float CalculateYearBonus(Employee employee) {
         switch (employee.getEmployeeType()) {
             case Worker:
                 return 0;
             case Supervisor:
-                return employee.getSalary() + employee.getSalary() * 0.7F;
+                return Bono(employee.getSalary(), 0.7F);
             case Manager:
-                return employee.getSalary() + employee.getSalary() * 1.0F;
+                return Bono(employee.getSalary(), 1.0F);
         }
         return 0.0F;
+    }
+    
+    public float Bono(float salary, float num){
+        return salary + salary * num;
     }
     
 }

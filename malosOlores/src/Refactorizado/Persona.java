@@ -19,8 +19,6 @@ public class Persona {
     protected String ciudad;
     protected String direccion;
 
-    public Persona() {
-    }
 
     public Persona(String Nombre, String Apellido, String Cedula) {
         this.Nombre = Nombre;
