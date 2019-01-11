@@ -15,13 +15,12 @@ public class Employee extends Persona{
     //variable de tipo employeeType
     private EmployeeType employeeType;    
 
-    public Employee(float salary, float bonusPercentage, EmployeeType employeeType)    
-    {        
+    public Employee(float salary, float bonusPercentage, EmployeeType employeeType){        
         super("Desconocido","Desconocido","0000000000");
         this.salary = salary;        
         this.bonusPercentage = bonusPercentage;        
         this.employeeType = employeeType;
-        super.getLocation().Location("Ecuador", "Gye", "Guayas", "ESPOL Prosperina");
+        super.setLocation("Ecuador", "Gye", "Guayas", "ESPOL Prosperina");
     }
 
     public float getSalary() {

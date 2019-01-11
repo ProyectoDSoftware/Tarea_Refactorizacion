@@ -31,15 +31,15 @@ public class Empresa {
     public void GuardarCliente(String Nombre, String Apellido, String Cedula){
         validarInformacion(Nombre, Apellido, Cedula);
         Cliente cliente = new Cliente(Nombre, Apellido, Cedula);
-        cliente.getLocation().Location("Ecuador", "Guayaquil", "Guayas", "Alborada 3era etapa");
+        cliente.setLocation("Ecuador", "Guayaquil", "Guayas", "Alborada 3era etapa");
         this.clientes.add(cliente);
         System.out.println(Nombre +" " + Apellido + " ha sido agregado como nuevo cliente");
         
     }
     
     public void validarInformacion(String Nombre, String Apellido, String Cedula ){
-        final boolean vnombre=Nombre.equals("") && Nombre.length()> 16;
-        final boolean vapellido=Apellido.equals("") && Apellido.length()> 16;
+        final boolean vnombre= Nombre.equals("") && Nombre.length()> 16;
+        final boolean vapellido= Apellido.equals("") && Apellido.length()> 16;
         final boolean vcedula=!Cedula.equals("") && Cedula.length()< 10;
         Validacion("nombre", vnombre);
         Validacion("apellido", vapellido);

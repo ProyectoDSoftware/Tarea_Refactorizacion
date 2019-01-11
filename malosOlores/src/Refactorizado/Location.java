@@ -16,7 +16,7 @@ public class Location {
     private String direccion;
     
     
-    public void Location(String nuevoPais, String ciudadnueva, String provinciaNueva, String direccionNueva) {
+    public Location(String nuevoPais, String ciudadnueva, String provinciaNueva, String direccionNueva) {
         pais = nuevoPais;
         ciudad = ciudadnueva;
         provincia = provinciaNueva;

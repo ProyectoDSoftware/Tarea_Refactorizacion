@@ -14,14 +14,14 @@ public class Persona {
     public String Nombre;
     public String Apellido;
     public String Cedula;
-    private Location location;
+    private Location lugar;
 
     public Location getLocation() {
-        return location;
+        return lugar;
     }
 
-    public void setLocation(Location location) {
-        this.location = location;
+    public void setLocation(String nuevoPais, String ciudadnueva, String provinciaNueva, String direccionNueva) {
+        lugar=new Location(nuevoPais, ciudadnueva, provinciaNueva, direccionNueva);
     }
 
 
