@@ -43,7 +43,7 @@ public class Pagos {
         return month % 2 == 0 ? value : value + rmu / 12 * 2;
     }
     
-    public float (){
+    public float Diezmo(){
         
     }
     //calcula el bonus anual

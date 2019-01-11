@@ -14,10 +14,15 @@ public class Persona {
     public String Nombre;
     public String Apellido;
     public String Cedula;
-    protected String provincia;
-    protected String pais;
-    protected String ciudad;
-    protected String direccion;
+    private Location location;
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
 
 
     public Persona(String Nombre, String Apellido, String Cedula) {
@@ -50,13 +55,4 @@ public class Persona {
         this.Cedula = Cedula;
     }
     
-    public void setLocation(String nuevoPais, String ciudadnueva, String provinciaNueva, String direccionNueva){
-        pais = nuevoPais;
-        ciudad = ciudadnueva;
-        provincia = provinciaNueva;
-        direccion = direccionNueva;
-    }
-    public String mostrarLocation() {
-        return pais + " - " + provincia + " - " + ciudad + "\n" + direccion;
-    }   
 }

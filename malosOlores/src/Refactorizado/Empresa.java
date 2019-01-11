@@ -21,77 +21,49 @@ public class Empresa {
         empleados = new ArrayList<Employee>();
     }
     
-    public void MostrarInformacion(Cliente cliente){
-        System.out.println("Cliente:");
-        System.out.println("Nombre: " + cliente.Nombre + ", Apellido: " + cliente.Apellido + ", con numero de cedula: " + cliente.Cedula );
-        System.out.println("Direccion: " + cliente.mostrarLocation());
-        System.out.println("----------------------");
-    }
-    public void MostrarInformacionEmp(Employee emp){
-        System.out.println("Empleado:");
-        System.out.println("Nombre: " + emp.getNombre() + ", Apellido: " + emp.getApellido() + ", con numero de cedula: " + emp.getCedula() );
-        System.out.println("Direccion: " + emp.mostrarLocation());
+    public void MostrarInformacion(String clien,Persona persona){
+        System.out.println(clien+" :");
+        System.out.println("Nombre: " + persona.Nombre + ", Apellido: " + persona.Apellido + ", con numero de cedula: " + persona.Cedula );
+        System.out.println("Direccion: " + persona.getLocation().mostrarLocation());
         System.out.println("----------------------");
     }
     
     public void GuardarCliente(String Nombre, String Apellido, String Cedula){
-        if(Nombre.equals("") && Nombre.length()> 16){
-                System.out.println("ingreso de nombre incorrecto");
-        }else{
-            System.out.println("ingreso de nombre correcto");
-
-        }
-        if(Apellido.equals("") && Apellido.length()> 16){
-            System.out.println("ingreso de apellido incorrecto");
-        }else{
-            System.out.println("ingreso de apellido correcto");
-
-        }
-        if(!Cedula.equals("") && Cedula.length()< 10){
-            System.out.println("ingreso de cedula incorrecto");
-        }else{
-            System.out.println("ingreso de cedula correcto");
-
-        }
+        validarInformacion(Nombre, Apellido, Cedula);
         Cliente cliente = new Cliente(Nombre, Apellido, Cedula);
-        cliente.setLocation("Ecuador", "Guayaquil", "Guayas", "Alborada 3era etapa");
+        cliente.getLocation().Location("Ecuador", "Guayaquil", "Guayas", "Alborada 3era etapa");
         this.clientes.add(cliente);
         System.out.println(Nombre +" " + Apellido + " ha sido agregado como nuevo cliente");
         
     }
     
     public void validarInformacion(String Nombre, String Apellido, String Cedula ){
-        if(Nombre.equals("") && Nombre.length()> 16){
-            System.out.println("ingreso de nombre incorrecto");
-        }else{
-            System.out.println("ingreso de nombre correcto");
-            
+        final boolean vnombre=Nombre.equals("") && Nombre.length()> 16;
+        final boolean vapellido=Apellido.equals("") && Apellido.length()> 16;
+        final boolean vcedula=!Cedula.equals("") && Cedula.length()< 10;
+        Validacion("nombre", vnombre);
+        Validacion("apellido", vapellido);
+        Validacion("cedula", vcedula);
+    }
+    
+    public void Validacion(String palabra,boolean valor){
+        if (valor) {
+            System.out.println("ingreso de "+palabra+" incorrecto");
+        } else {
+            System.out.println("ingreso de "+palabra+"  correcto");
         }
-        if(Apellido.equals("") && Apellido.length()> 16){
-            System.out.println("ingreso de apellido incorrecto");
-        }else{
-            System.out.println("ingreso de apellido correcto");
-            
-        }
-        if(!Cedula.equals("") && Cedula.length()< 10){
-            System.out.println("ingreso de cedula incorrecto");
-        }else{
-            System.out.println("ingreso de cedula correcto");
-            
-        }
-        
     }
     
     public void mostrarTodo() {
         
         //Mostrar los clientes 
         for(Cliente cliente : this.clientes){
-            MostrarInformacion(cliente);           
+            MostrarInformacion("Cliente",cliente);           
         }
         
         //Mostrar los empleados 
         for(Employee empleado : this.empleados){
-            MostrarInformacionEmp(empleado);           
+            MostrarInformacion("Empleado",empleado);           
         }
     }
     

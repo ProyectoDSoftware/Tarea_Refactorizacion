@@ -21,7 +21,7 @@ public class Employee extends Persona{
         this.salary = salary;        
         this.bonusPercentage = bonusPercentage;        
         this.employeeType = employeeType;
-        super.setLocation("Ecuador", "Gye", "Guayas", "ESPOL Prosperina");
+        super.getLocation().Location("Ecuador", "Gye", "Guayas", "ESPOL Prosperina");
     }
 
     public float getSalary() {
